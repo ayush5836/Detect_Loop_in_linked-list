@@ -1,0 +1,14 @@
+bool detectLoop(Node* head)
+    {
+        // Firstly creat two pointer slo and fast
+        struct Node *slow=head,*fast=head;
+        while(slow && fast && fast->next){
+            slow=slow->next;           //move one step
+            
+            fast=fast->next->next;   //move two step
+            if(slow==fast){
+                return 1;            //retuen true if loop found
+            }
+        }
+        return 0;     ////retuen false if loop not found
+    }
